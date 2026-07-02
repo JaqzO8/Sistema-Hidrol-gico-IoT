@@ -1,0 +1,39 @@
+GUÍA RÁPIDA DE ARCHIVOS - PROYECTO IoT HIDROLÓGICO ESP32
+
+Pines usados:
+- OLED SDA -> P21
+- OLED SCL -> P22
+- DHT22 DATA -> P4
+- FC-37 DO -> P34
+- FC-37 AO -> P33
+- Ultrasónico TRIG -> P17
+- Ultrasónico ECHO -> P16 con divisor de voltaje
+- LED verde -> P13 con resistencia 220 ohm
+- LED amarillo -> P14 con resistencia 220 ohm
+- LED rojo -> P27 con resistencia 220 ohm
+- Relé IN -> P26
+- Buzzer:
+  * Si lo pruebas directo: positivo/señal -> P25 y negativo -> GND.
+  * Si lo usas con relé para la presentación: 5V -> COM del relé, NO del relé -> + del buzzer, - del buzzer -> GND.
+
+Alimentación:
+- OLED, DHT22 y FC-37: usar 3V3.
+- Ultrasónico JSN-SR04T y relé: usar 5V.
+- Todos los GND deben estar en común.
+
+Orden recomendado de prueba:
+1. 01_Prueba_LEDs
+2. 02_Prueba_OLED
+3. 03_Prueba_DHT22
+4. 04_Prueba_FC37
+5. 05_Prueba_Ultrasonico
+6. 06_Prueba_Buzzer_Directo
+7. 07_Prueba_Rele_Buzzer
+8. 08_Prueba_Conjunta_Basica
+9. 09_Codigo_Final_Proyecto
+
+IMPORTANTE:
+- No conectes ECHO del ultrasónico directo a P16 si tu sensor entrega 5V.
+- Usa divisor de voltaje para ECHO.
+- No conectes LEDs sin resistencia.
+- Si el relé funciona al revés, cambia RELE_ACTIVO_EN_LOW de true a false.
